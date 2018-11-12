@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listagem de Transações</title>
+</head>
+<body>
+
+<h1>Listagem de Transações</h1>
+<ul>
+{% for transacao in transacoes %}
+    <li> | <a href="{% url 'url_update' transacao.id %}">Editar</a> | <a href="{% url 'url_delete' transacao.id %}">Excluir</a>
+        {{ transacao.descricao }} - {{ transacao.data}} {{ transacao.valor }} {{ transacao.categoria }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'url_nova_transacao' %}">Nova Transação</a>
+
+</body>
+</html>
